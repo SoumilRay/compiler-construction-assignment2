@@ -1,0 +1,2 @@
+DOUBTS
+- can there be multiple blocks of statements
