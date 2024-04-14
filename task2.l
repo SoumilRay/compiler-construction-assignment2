@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "y.tab.h"
 int line_num = 1;
+//we are naming our token BEGINN instead of BEGIN as BEGIN is a reserved word in lex and yacc
 // and, or, not, var have not been included in keyword as they are included in different categories (like boolean operator)
 //types of variables: char, integer, real, boolean
 %}
@@ -12,7 +13,7 @@ SPACES [" "]*
 
 %%
 
-\n         { line_num++; }
+\n         {}
 
 
 program    { return PROGRAM; }
@@ -29,7 +30,7 @@ while      { printf("%d %s while\n", line_num, yytext); }
 for        { printf("%d %s for\n", line_num, yytext); }
 do         { printf("%d %s do\n", line_num, yytext); }
 array      { printf("%d %s array\n", line_num, yytext); }
-begin      { return BEGIN; }
+begin      { return BEGINN; }
 end        { return END; }
 read       { printf("%d %s read\n", line_num, yytext); }
 write      { printf("%d %s write\n", line_num, yytext); }
@@ -59,8 +60,3 @@ write      { printf("%d %s write\n", line_num, yytext); }
 
 %%
 
-int main()
-{
-	yylex();
-	return 0;
-}

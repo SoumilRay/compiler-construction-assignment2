@@ -1,12 +1,11 @@
 %{
 #include <stdio.h>
-int sum;
+#include <stdlib.h>
 %}
-%token PROGRAM VAR VARLINE BEGIN END PERIOD
+%token PROGRAM IDENTIFIER VAR VARLINE BEGINN END PERIOD
 %%
 
-//expr: NUM'+'NUM {$$=$1+$3;  sum=$$;  printf("sum is %d", sum);}
-S: PROGRAM IDENTIFIER VAR VARLINES BEGIN A END PERIOD
+S: PROGRAM IDENTIFIER VAR VARLINES BEGINN END PERIOD {return 1;}
  ;
 VARLINES: VARLINE VARLINES
         | VARLINE
