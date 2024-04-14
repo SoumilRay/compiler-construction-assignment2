@@ -1,2 +1,3 @@
 DOUBTS
 - can there be multiple blocks of statements
+- From what I can figure out, strings in pascal should have single quotes and not double quotes. Should we follow the same?
