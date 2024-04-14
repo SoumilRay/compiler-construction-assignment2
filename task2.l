@@ -35,7 +35,7 @@ end        { return END; }
 read       { return READ; }
 write      { return WRITE; }
 
-
+then       { return THEN; }
 (and)|(or)|(not)                   { return BOOL_OP; }
 [+*/%]                             { return AR_OP; }
 [-]                                { return AR_OP; }
@@ -45,6 +45,8 @@ write      { return WRITE; }
 \<>                                { return REL_OP; }
 \<=                                { return REL_OP; }
 \>=                                { return REL_OP; }
+:=                                 { return ASS_OP; }
+
 
 [a-z][a-z0-9_]*                    { return IDENTIFIER; }
 
@@ -53,9 +55,13 @@ write      { return WRITE; }
 ;                           { return SEMICOLON; }
 \?                           { return QUESTIONMARK; }
 !                           { return EXCLAMATIONMARK; }
+\(                          { return BO; }
+\)                          { return BC; }
 
 [0-9]+                             { return FNUMBER; }
 [0-9]*[.][0-9]+                    { return DNUMBER; }
+
+\'[^\']*\'                  { return STRING; }
 
 \.                                 { return PERIOD; }
 
