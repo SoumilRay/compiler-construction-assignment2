@@ -16,11 +16,11 @@ SPACES [" "]*
 \n         {}
 
 
-program    { return PROGRAM; }
-integer    { return VTYPE; }
-real       { return VTYPE; }
-boolean    { return VTYPE; }
-char       { return VTYPE; }
+program    { return PROGRAM;}
+boolean    { return BOOLEAN; }
+char         { return CHARACTER; }
+integer     { return INTEGER; }
+real        { return REAL; }
 var        { return VAR; }
 to         { return TO; }
 downto     { return DOWNTO; }
@@ -34,6 +34,7 @@ begin      { return BEGINN; }
 end        { return END; }
 read       { return READ; }
 write      { return WRITE; }
+of         { return OF; }
 
 then       { return THEN; }
 (and)|(or)|(not)                   { return BOOL_OP; }
@@ -48,6 +49,7 @@ then       { return THEN; }
 :=                                 { return ASS_OP; }
 
 
+
 [a-z][a-z0-9_]*                    { return IDENTIFIER; }
 
 ,                           { return COMMA; }
@@ -57,9 +59,11 @@ then       { return THEN; }
 !                           { return EXCLAMATIONMARK; }
 \(                          { return BO; }
 \)                          { return BC; }
+\[                          { return SBO; }
+\]                          { return SBC; }
 
-[0-9]+                             { return FNUMBER; }
-[0-9]*[.][0-9]+                    { return DNUMBER; }
+[0-9]+                             { return DNUMBER; }
+[0-9]*[.][0-9]+                    { return FNUMBER; }
 
 \'[^\']*\'                  { return STRING; }
 
