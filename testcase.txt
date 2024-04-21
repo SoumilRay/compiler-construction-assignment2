@@ -1,15 +1,17 @@
-program ArraySum;
+program Example9;
 var
-i , sum : Integer;
+  i: Integer;
 begin
-write(' Enter 10 integer values : ');
-for i := 1 to 10 do
-begin
-read ( numbers [ i ]) ;
-end ;
-sum := 0;
-for i := 1 to 10 do
-begin
-sum := sum + numbers [i];
-end;
+  i := 10;
+  if i > 10 then
+  begin
+    i := 10;
+    i := i - 1;
+    write(i);
+  end
+  else
+  begin
+    i := 20;
+    write(i);
+  end;
 end.

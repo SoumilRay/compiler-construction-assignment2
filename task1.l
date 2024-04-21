@@ -52,11 +52,12 @@ of		   { printf("%d\t\t| %s\t\t| of\n", line_num, yytext); }
 
 %%
 
-int main()
-{	printf("-----------------------------------------\n");
+int main(int argc, char* argv[])
+{	if(argc<2) return -1;
+	printf("-----------------------------------------\n");
 	printf("Line Number\t  Lexeme\t Token Type\n");
 	printf("-----------------------------------------\n");
-	yyin = fopen("testcase.txt","r");
+	yyin = fopen(argv[1],"r");
 	yylex();
 	fclose(yyin);
 	return 0;

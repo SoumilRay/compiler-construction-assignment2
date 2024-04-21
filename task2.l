@@ -16,14 +16,14 @@ SPACES [" "]*
 \n         {}
 
 
-program    { return PROGRAM;}
+program    {return PROGRAM;}
 boolean    { return BOOLEAN; }
 char         { return CHARACTER; }
 integer     { return INTEGER; }
+downto      { return DOWNTO; }
 real        { return REAL; }
 var        { return VAR; }
 to         { return TO; }
-downto     { return DOWNTO; }
 if         { return IF; }
 else       { return ELSE; }
 while      { return WHILE; }
@@ -43,7 +43,7 @@ then       { return THEN; }
 =                                  { return REL_OP; }
 \<                                 { return REL_OP; }
 \>                                 { return REL_OP; }
-\<>                                { return REL_OP; }
+\<\>                                { return REL_OP; }
 \<=                                { return REL_OP; }
 \>=                                { return REL_OP; }
 :=                                 { return ASS_OP; }
@@ -63,10 +63,10 @@ then       { return THEN; }
 \]                          { return SBC; }
 
 [0-9]+                             { return DNUMBER; }
-[0-9]*[.][0-9]+                    { return FNUMBER; }
+[0-9]+[.][0-9]+                    { return FNUMBER; }
 
-\'[^\']*\'                  { return STRING; }
-
+\'[^\']*\'                 { return STRING; }
+\"[^\"]*\"                  { return STRING; }
 \.                                 { return PERIOD; }
 
 .                                  {}
